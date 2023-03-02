@@ -1,5 +1,6 @@
 from flask import *
 from flask_mail import Mail, Message
+import os
 
 app = Flask(__name__)
 
@@ -28,10 +29,10 @@ def send_mail():
     msg = Message(
         subject=subject,
         recipients=[email],
-        html=render_template('shoparound-regular.html')
+        html=render_template('email.html')
     )
-    # msg.body 
-    with app.open_resource("static/images/image.jpg") as fp:
+
+    with app.open_resource("static/images/img_1.jpg") as fp:
         msg.attach("image.jpg", "image/jpg", fp.read())
     mail.send(msg)
 
