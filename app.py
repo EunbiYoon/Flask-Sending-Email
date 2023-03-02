@@ -25,11 +25,10 @@ def index():
 def send_mail():
     email = request.form['email'].strip()
     subject = 'Hello'
-    message = 'This is test email'
     msg = Message(
         subject=subject,
         recipients=[email],
-        html=message
+        html=render_template('shoparound-regular.html')
     )
     # msg.body 
     with app.open_resource("static/images/image.jpg") as fp:
