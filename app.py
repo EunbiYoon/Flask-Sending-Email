@@ -29,7 +29,7 @@ def send_mail():
     msg = Message(
         subject=subject,
         recipients=[email],
-        html=render_template('email.html')
+        html=render_template('graph.html')
     )
 
     with app.open_resource("static/images/img_1.jpg") as fp:
